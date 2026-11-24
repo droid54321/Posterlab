@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PosterLab | Afiches y Posters que Impactan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #E63946;
+            --secondary: #F1FAEE;
+            --accent: #457B9D;
+            --dark: #1D3557;
+            --light: #F8F9FA;
+            --yellow: #FFB703;
+            --whatsapp: #25D366;
+        }
+
+        body {
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .btn {
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            box-shadow: 0 4px 15px rgba(230, 57, 70, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(230, 57, 70, 0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 5% 4rem;
+            background: linear-gradient(135deg, #F8F9FA 0%, #FFE5E7 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(230, 57, 70, 0.15), transparent 70%);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        .hero-text h1 span {
+            background: linear-gradient(135deg, var(--primary), var(--yellow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .slogan {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--accent);
+            font-style: italic;
+            letter-spacing: 1px;
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .poster-showcase {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.2rem;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .mini-poster {
+            width: 140px;
+            height: 190px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mini-poster:nth-child(1) { background: linear-gradient(135deg, #E63946, #FFB703); }
+        .mini-poster:nth-child(2) { background: linear-gradient(135deg, #457B9D, #1D3557); margin-top: 2rem; }
+        .mini-poster:nth-child(3) { background: linear-gradient(135deg, #FFB703, #FB8500); margin-top: -2rem; }
+        .mini-poster:nth-child(4) { background: linear-gradient(135deg, #1D3557, #457B9D); }
+
+        .mini-poster:hover {
+            transform: scale(1.08) rotate(-2deg);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* SERVICIOS */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s;
+            border-top: 4px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(230, 57, 70, 0.15);
+            border-top-color: var(--primary);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--yellow));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .service-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* CÓMO TRABAJO */
+        .proceso {
+            background: linear-gradient(135deg, #E8F0F7 0%, #FFF5F6 100%);
+            max-width: 100%;
+        }
+
+        .pasos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .paso {
+            background: white;
+            padding: 2.5rem 1.8rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s;
+            position: relative;
+        }
+
+        .paso:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(230, 57, 70, 0.15);
+        }
+
+        .paso-numero {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--yellow));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin: 0 auto 1.2rem;
+            box-shadow: 0 8px 20px rgba(230, 57, 70, 0.3);
+        }
+
+        .paso h3 {
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+            color: var(--dark);
+        }
+
+        .paso p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* SOBRE MÍ */
+        .sobre-mi {
+            background: var(--dark);
+            color: white;
+            max-width: 100%;
+        }
+
+        .sobre-mi-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .sobre-mi-avatar {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--yellow));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 7rem;
+            margin: 0 auto;
+            box-shadow: 0 20px 40px rgba(230, 57, 70, 0.4);
+            border: 5px solid var(--yellow);
+        }
+
+        .sobre-mi-texto h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.2rem;
+            color: var(--yellow);
+        }
+
+        .sobre-mi-texto p {
+            color: #E0E0E0;
+            font-size: 1.05rem;
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .sobre-mi-texto .destacado {
+            color: var(--yellow);
+            font-weight: 700;
+        }
+
+        /* ¿POR QUÉ ELEGIRME? */
+        .why {
+            background: linear-gradient(135deg, #FFF5F6 0%, #E8F0F7 100%);
+            max-width: 100%;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .why-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s;
+            border-top: 4px solid transparent;
+            text-align: center;
+        }
+
+        .why-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(230, 57, 70, 0.15);
+            border-top-color: var(--primary);
+        }
+
+        .why-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .why-card h3 {
+            margin-bottom: 0.8rem;
+            font-size: 1.25rem;
+            color: var(--dark);
+        }
+
+        .why-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* PRECIOS */
+        .precios {
+            background: var(--dark);
+            color: white;
+            max-width: 100%;
+        }
+
+        .precios .section-title p {
+            color: #B2BEC3;
+        }
+
+        .precios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.8rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            align-items: stretch;
+        }
+
+        .precio-card {
+            background: white;
+            color: var(--dark);
+            border-radius: 20px;
+            padding: 2.5rem 1.8rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .precio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35);
+        }
+
+        .precio-card.destacado {
+            border: 3px solid var(--yellow);
+        }
+
+        .etiqueta {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--yellow);
+            color: var(--dark);
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        .precio-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .precio-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .precio-card .descripcion {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            min-height: 40px;
+        }
+
+        .precio-valor {
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+            line-height: 1;
+        }
+
+        .precio-valor small {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #666;
+        }
+
+        .precio-tiempo {
+            color: #888;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .precio-incluye {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .precio-incluye li {
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+            color: #444;
+            border-bottom: 1px solid #eee;
+        }
+
+        .precio-incluye li:last-child {
+            border-bottom: none;
+        }
+
+        .precio-incluye li::before {
+            content: "✅ ";
+            margin-right: 0.3rem;
+        }
+
+        .precio-card .btn {
+            width: 100%;
+        }
+
+        /* FORMATOS Y CONTENIDO DIGITAL */
+        .formats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .format-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            border: 2px dashed #ddd;
+        }
+
+        .format-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .format-card.digital {
+            border-color: var(--accent);
+            background: linear-gradient(135deg, #F0F7FC 0%, #FFFFFF 100%);
+        }
+
+        .format-card.digital:hover {
+            border-color: var(--primary);
+        }
+
+        .format-card .format-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .format-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .format-card p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .format-card .size {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--dark);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 0.8rem;
+        }
+
+        .formats-subtitle {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin: 3rem 0 0.5rem;
+            text-align: center;
+        }
+
+        .formats-subtitle small {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #888;
+            margin-top: 0.3rem;
+        }
+
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            text-align: center;
+            border-radius: 30px;
+            padding: 4rem 2rem;
+            margin: 4rem auto;
+            max-width: 1200px;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta .btn {
+            background: white;
+            color: var(--primary);
+        }
+
+        .cta .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 5% 1.5rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 1rem;
+            color: var(--yellow);
+        }
+
+        .footer-col a {
+            color: #B2BEC3;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: var(--yellow);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 1.5rem;
+            color: #B2BEC3;
+            font-size: 0.9rem;
+        }
+
+        /* ============================================ */
+        /* BOTÓN FLOTANTE DE WHATSAPP                   */
+        /* ============================================ */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background: var(--whatsapp);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+            z-index: 999;
+            text-decoration: none;
+            transition: all 0.3s;
+            animation: pulse-wa 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.7);
+            animation: none;
+        }
+
+        .whatsapp-float svg {
+            width: 34px;
+            height: 34px;
+            fill: white;
+        }
+
+        /* Tooltip al pasar el mouse */
+        .whatsapp-float .wa-tooltip {
+            position: absolute;
+            right: 75px;
+            background: var(--dark);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .whatsapp-float .wa-tooltip::after {
+            content: '';
+            position: absolute;
+            right: -8px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 8px solid transparent;
+            border-left-color: var(--dark);
+        }
+
+        .whatsapp-float:hover .wa-tooltip {
+            opacity: 1;
+        }
+
+        @keyframes pulse-wa {
+            0% {
+                box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5), 0 0 0 0 rgba(37, 211, 102, 0.5);
+            }
+            70% {
+                box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5), 0 0 0 18px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5), 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 { font-size: 2.5rem; }
+
+            .hero-buttons { justify-content: center; }
+
+            .section-title h2 { font-size: 2rem; }
+
+            .cta h2 { font-size: 1.8rem; }
+
+            .poster-showcase {
+                justify-content: center;
+                transform: scale(0.85);
+            }
+
+            .sobre-mi-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .sobre-mi-texto h2 {
+                font-size: 1.8rem;
+            }
+
+            .whatsapp-float {
+                width: 55px;
+                height: 55px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .whatsapp-float svg {
+                width: 30px;
+                height: 30px;
+            }
+
+            .whatsapp-float .wa-tooltip {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">PosterLab 🎨</div>
+        <ul class="nav-links">
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#proceso">Cómo trabajo</a></li>
+            <li><a href="#sobre-mi">Sobre mí</a></li>
+            <li><a href="#precios">Precios</a></li>
+            <li><a href="#formatos">Formatos</a></li>
+        </ul>
+        <a href="#contacto" class="btn btn-primary">Cotizar</a>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Afiches y posters que <span>impactan</span></h1>
+                <p>Diseño afiches, posters y piezas gráficas para promocionar tu producto, evento o marca. Listos para imprimir en cualquier formato.</p>
+                <div class="hero-buttons">
+                    <a href="#servicios" class="btn btn-primary">Ver Servicios</a>
+                    <a href="#precios" class="btn btn-outline">Ver Precios</a>
+                </div>
+                <div class="slogan">✨ Diseños que hablan por ti ✨</div>
+            </div>
+            <div class="hero-visual">
+                <div class="poster-showcase">
+                    <div class="mini-poster">🎨</div>
+                    <div class="mini-poster">🖼️</div>
+                    <div class="mini-poster">📰</div>
+                    <div class="mini-poster">✨</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios">
+        <div class="section-title">
+            <h2>¿Qué puedo diseñar para ti?</h2>
+            <p>Todo tipo de afiches y posters para promocionar tus productos o eventos.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h3>Afiches Publicitarios</h3>
+                <p>Diseños llamativos para promocionar productos, ofertas, lanzamientos y campañas de temporada.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🖼️</div>
+                <h3>Posters Decorativos</h3>
+                <p>Posters artísticos y decorativos para interiores, tiendas, cafeterías y espacios comerciales.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📰</div>
+                <h3>Afiches de Eventos</h3>
+                <p>Flyers y afiches para conciertos, ferias, talleres, inauguraciones y eventos especiales.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🍽️</div>
+                <h3>Menús y Catálogos</h3>
+                <p>Diseño de menús para restaurantes y catálogos de productos en formato impreso atractivo.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏷️</div>
+                <h3>Piezas para Redes</h3>
+                <p>Adapto el afiche impreso a formato digital para publicarlo en Instagram, Facebook y WhatsApp.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎯</div>
+                <h3>Diseño Personalizado</h3>
+                <p>Cuéntame tu idea y creo un afiche único con tu estilo, colores y logo de tu marca.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CÓMO TRABAJO -->
+    <section id="proceso" class="proceso">
+        <div class="section-title">
+            <h2>¿Cómo trabajo?</h2>
+            <p>Así de fácil es pedir tu afiche. Solo 4 pasos y listo.</p>
+        </div>
+        <div class="pasos-grid">
+            <div class="paso">
+                <div class="paso-numero">1</div>
+                <h3>Me escribes</h3>
+                <p>Cuéntame tu idea, tu producto y qué colores te gustan.</p>
+            </div>
+            <div class="paso">
+                <div class="paso-numero">2</div>
+                <h3>Te muestro un borrador</h3>
+                <p>Te envío un primer diseño para que lo veas y opines.</p>
+            </div>
+            <div class="paso">
+                <div class="paso-numero">3</div>
+                <h3>Lo ajustamos</h3>
+                <p>Me dices qué cambiar y lo corrijo hasta que te guste.</p>
+            </div>
+            <div class="paso">
+                <div class="paso-numero">4</div>
+                <h3>Te lo entrego</h3>
+                <p>Recibes tu afiche listo para imprimir o publicar.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE MÍ -->
+    <section id="sobre-mi" class="sobre-mi">
+        <div class="sobre-mi-content">
+            <div class="sobre-mi-avatar">🎨</div>
+            <div class="sobre-mi-texto">
+                <h2>Sobre mí</h2>
+                <p>¡Hola! 👋 Soy <span class="destacado">Fabrizio</span>, tengo 13 años y me encanta el diseño.</p>
+                <p>Empecé haciendo afiches para <span class="destacado">nuevos emprendimientos</span> que están empezando, como el tuyo. Sé lo difícil que es promocionar un producto cuando recién arrancas, y por eso quiero ayudarte con diseños únicos y a buen precio.</p>
+                <p>No soy una gran agencia, pero le pongo todas las ganas, creatividad y dedicación a cada afiche que hago. 💪</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ¿POR QUÉ ELEGIRME? -->
+    <section id="porque" class="why">
+        <div class="section-title">
+            <h2>¿En qué me diferencio de otros?</h2>
+            <p>No soy una gran agencia, pero eso tiene sus ventajas para ti.</p>
+        </div>
+        <div class="why-grid">
+            <div class="why-card">
+                <span class="why-icon">💡</span>
+                <h3>Diseños con ideas frescas</h3>
+                <p>Como estoy empezando, cada afiche lo hago con ganas y creatividad, sin plantillas repetidas.</p>
+            </div>
+            <div class="why-card">
+                <span class="why-icon">💬</span>
+                <h3>Atención directa</h3>
+                <p>Hablas conmigo directamente, sin intermediarios ni esperas. Te respondo rápido y escucho tus ideas.</p>
+            </div>
+            <div class="why-card">
+                <span class="why-icon">💰</span>
+                <h3>Precios accesibles</h3>
+                <p>Al ser un emprendimiento joven, mis precios son amables para negocios pequeños como el tuyo.</p>
+            </div>
+            <div class="why-card">
+                <span class="why-icon">⚡</span>
+                <h3>Entrega rápida</h3>
+                <p>Sin procesos largos: me cuentas tu idea y en poco tiempo tienes tu afiche listo para imprimir.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRECIOS -->
+    <section id="precios" class="precios">
+        <div class="section-title">
+            <h2>Precios</h2>
+            <p>Elige el paquete que mejor se adapte a tu negocio. Los precios son en soles (S/).</p>
+        </div>
+        <div class="precios-grid">
+
+            <!-- PLAN 1: DIGITAL -->
+            <div class="precio-card">
+                <div class="precio-icon">📱</div>
+                <h3>Digital</h3>
+                <p class="descripcion">Solo para redes sociales, sin impresión.</p>
+                <div class="precio-valor">S/ 10</div>
+                <div class="precio-tiempo">por diseño</div>
+                <ul class="precio-incluye">
+                    <li>1 diseño para Instagram/Facebook</li>
+                    <li>Formato 1080x1080 px</li>
+                    <li>1 corrección incluida</li>
+                    <li>Entrega en menos de 1 día</li>
+                </ul>
+                <a href="https://wa.me/51999999999?text=Hola%20Fabrizio,%20quiero%20el%20plan%20Digital" target="_blank" class="btn btn-outline">Lo quiero</a>
+            </div>
+
+            <!-- PLAN 2: BÁSICO -->
+            <div class="precio-card">
+                <div class="precio-icon">📄</div>
+                <h3>Básico</h3>
+                <p class="descripcion">Para empezar con un afiche que llame la atención.</p>
+                <div class="precio-valor">S/ 15</div>
+                <div class="precio-tiempo">por afiche</div>
+                <ul class="precio-incluye">
+                    <li>1 diseño en A6 o A5</li>
+                    <li>Versión digital para redes</li>
+                    <li>1 corrección incluida</li>
+                    <li>Entrega en 1 día</li>
+                </ul>
+                <a href="https://wa.me/51999999999?text=Hola%20Fabrizio,%20quiero%20el%20plan%20Básico" target="_blank" class="btn btn-outline">Lo quiero</a>
+            </div>
+
+            <!-- PLAN 3: MEDIO (DESTACADO) -->
+            <div class="precio-card destacado">
+                <span class="etiqueta">⭐ MÁS POPULAR</span>
+                <div class="precio-icon">📃</div>
+                <h3>Medio</h3>
+                <p class="descripcion">El equilibrio entre precio y calidad. El favorito.</p>
+                <div class="precio-valor">S/ 25</div>
+                <div class="precio-tiempo">por afiche</div>
+                <ul class="precio-incluye">
+                    <li>1 diseño en A3 o A4</li>
+                    <li>Versión digital incluida</li>
+                    <li>2 correcciones incluidas</li>
+                    <li>Entrega en 1-2 días</li>
+                </ul>
+                <a href="https://wa.me/51999999999?text=Hola%20Fabrizio,%20quiero%20el%20plan%20Medio" target="_blank" class="btn btn-primary">Lo quiero</a>
+            </div>
+
+            <!-- PLAN 4: PACK -->
+            <div class="precio-card">
+                <div class="precio-icon">🎁</div>
+                <h3>Pack x3</h3>
+                <p class="descripcion">3 afiches con descuento. Ideal para promociones.</p>
+                <div class="precio-valor">S/ 60</div>
+                <div class="precio-tiempo">por 3 afiches</div>
+                <ul class="precio-incluye">
+                    <li>3 diseños en A3 o A4</li>
+                    <li>Versión digital de cada uno</li>
+                    <li>2 correcciones por afiche</li>
+                    <li>Entrega en 2-3 días</li>
+                </ul>
+                <a href="https://wa.me/51999999999?text=Hola%20Fabrizio,%20quiero%20el%20plan%20Pack%20x3" target="_blank" class="btn btn-outline">Lo quiero</a>
+            </div>
+
+            <!-- PLAN 5: PREMIUM -->
+            <div class="precio-card">
+                <div class="precio-icon">👑</div>
+                <h3>Premium</h3>
+                <p class="descripcion">Diseño exclusivo con más revisiones y detalles.</p>
+                <div class="precio-valor">S/ 40</div>
+                <div class="precio-tiempo">por afiche</div>
+                <ul class="precio-incluye">
+                    <li>1 diseño en A3 o A4</li>
+                    <li>Versión digital + adaptación a stories</li>
+                    <li>3 correcciones incluidas</li>
+                    <li>Logo o marca incluida</li>
+                    <li>Entrega en 1-2 días</li>
+                </ul>
+                <a href="https://wa.me/51999999999?text=Hola%20Fabrizio,%20quiero%20el%20plan%20Premium" target="_blank" class="btn btn-outline">Lo quiero</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FORMATOS Y CONTENIDO DIGITAL -->
+    <section id="formatos">
+        <div class="section-title">
+            <h2>Formatos y Contenido Digital</h2>
+            <p>Diseño tanto para imprimir como para publicar en tus redes sociales.</p>
+        </div>
+
+        <!-- SUBTÍTULO: IMPRESIÓN -->
+        <h3 class="formats-subtitle">
+            🖨️ Para Imprimir
+            <small>Afiches listos para imprimir en alta calidad</small>
+        </h3>
+        <div class="formats-grid">
+            <div class="format-card">
+                <div class="format-icon">📄</div>
+                <h3>Flyer</h3>
+                <p>Ideal para repartir y promocionar rápido.</p>
+                <span class="size">A6 · A5</span>
+            </div>
+            <div class="format-card">
+                <div class="format-icon">📃</div>
+                <h3>Afiche Mediano</h3>
+                <p>Perfecto para vitrinas y tablones.</p>
+                <span class="size">A3 · A4</span>
+            </div>
+        </div>
+
+        <!-- SUBTÍTULO: DIGITAL -->
+        <h3 class="formats-subtitle">
+            📱 Contenido Digital
+            <small>Diseños listos para publicar en redes sociales</small>
+        </h3>
+        <div class="formats-grid">
+            <div class="format-card digital">
+                <div class="format-icon">📸</div>
+                <h3>Post para Feed</h3>
+                <p>Publicación cuadrada para Instagram y Facebook.</p>
+                <span class="size">1080x1080 px</span>
+            </div>
+            <div class="format-card digital">
+                <div class="format-icon">📲</div>
+                <h3>Historia / Story</h3>
+                <p>Diseño vertical para stories y estados.</p>
+                <span class="size">1080x1920 px</span>
+            </div>
+            <div class="format-card digital">
+                <div class="format-icon">🖼️</div>
+                <h3>Portada / Banner</h3>
+                <p>Para portadas de Facebook o YouTube.</p>
+                <span class="size">820x312 px</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta" id="contacto">
+        <h2>¿Necesitas un afiche para tu producto?</h2>
+        <p>Cuéntame tu idea y te diseño un afiche o poster único, listo para imprimir.</p>
+        <a href="https://wa.me/51999999999?text=Hola%20Fabrizio,%20quiero%20una%20cotización" target="_blank" class="btn btn-primary">Solicitar Cotización</a>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>PosterLab 🎨</h4>
+                <p style="color: #B2BEC3;">Diseño de afiches y posters que hacen que tu producto destaque.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Servicios</h4>
+                <a href="#servicios">Afiches Publicitarios</a>
+                <a href="#servicios">Posters Decorativos</a>
+                <a href="#servicios">Afiches de Eventos</a>
+                <a href="#servicios">Diseño Personalizado</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <a href="https://wa.me/51999999999" target="_blank">WhatsApp: +51 999 999 999</a>
+                <a href="mailto:hola@posterlab.com">hola@posterlab.com</a>
+                <a href="#">Instagram</a>
+                <a href="#">TikTok</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2025 PosterLab. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+    <a href="https://wa.me/51999999999?text=Hola%20Fabrizio,%20vi%20tu%20página%20y%20quiero%20un%20afiche" 
+       target="_blank" 
+       class="whatsapp-float" 
+       aria-label="Contactar por WhatsApp">
+        <span class="wa-tooltip">¡Escríbeme! 💬</span>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+    </a>
+
+</body>
+</html>
