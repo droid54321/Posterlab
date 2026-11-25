@@ -686,6 +686,70 @@
             font-size: 0.95rem;
         }
 
+        /* ============================================ */
+        /* NUEVA SECCIÓN: PREGUNTAS FRECUENTES (FAQ)    */
+        /* ============================================ */
+        .faq {
+            background: white;
+            max-width: 100%;
+        }
+
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--light);
+            border-radius: 15px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+            border: 1px solid #eee;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .faq-item[open] {
+            box-shadow: 0 5px 20px rgba(230, 57, 70, 0.1);
+            border-color: var(--primary);
+        }
+
+        .faq-item summary {
+            padding: 1.5rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--dark);
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary::after {
+            content: "▼";
+            font-size: 0.8rem;
+            color: var(--primary);
+            transition: transform 0.3s;
+        }
+
+        .faq-item[open] summary::after {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: #666;
+            font-size: 0.95rem;
+            border-top: 1px solid #ddd;
+            margin-top: -0.5rem;
+            padding-top: 1rem;
+        }
+
         /* CTA */
         .cta {
             background: linear-gradient(135deg, var(--primary), var(--accent));
@@ -896,6 +960,7 @@
             <li><a href="#sobre-mi">Sobre mí</a></li>
             <li><a href="#precios">Precios</a></li>
             <li><a href="#formatos">Formatos</a></li>
+            <li><a href="#faq">Preguntas</a></li>
         </ul>
         <a href="#contacto" class="btn btn-primary">Cotizar</a>
     </nav>
@@ -1057,7 +1122,7 @@
                     <li>1 corrección incluida</li>
                     <li>Entrega en menos de 1 día</li>
                 </ul>
-                <a href="https://wa.me/51999999999?text=Hola%20Fabrizio,%20quiero%20el%20plan%20Digital" target="_blank" class="btn btn-outline">Lo quiero</a>
+                <a href="https://wa.me/51999371363?text=Hola%20Fabrizio,%20quiero%20el%20plan%20Digital" target="_blank" class="btn btn-outline">Lo quiero</a>
             </div>
 
             <!-- PLAN 2: BÁSICO -->
@@ -1073,7 +1138,7 @@
                     <li>1 corrección incluida</li>
                     <li>Entrega en 1 día</li>
                 </ul>
-                <a href="https://wa.me/51999999999?text=Hola%20Fabrizio,%20quiero%20el%20plan%20Básico" target="_blank" class="btn btn-outline">Lo quiero</a>
+                <a href="https://wa.me/51999371363?text=Hola%20Fabrizio,%20quiero%20el%20plan%20Básico" target="_blank" class="btn btn-outline">Lo quiero</a>
             </div>
 
             <!-- PLAN 3: MEDIO (DESTACADO) -->
@@ -1090,7 +1155,7 @@
                     <li>2 correcciones incluidas</li>
                     <li>Entrega en 1-2 días</li>
                 </ul>
-                <a href="https://wa.me/51999999999?text=Hola%20Fabrizio,%20quiero%20el%20plan%20Medio" target="_blank" class="btn btn-primary">Lo quiero</a>
+                <a href="https://wa.me/51999371363?text=Hola%20Fabrizio,%20quiero%20el%20plan%20Medio" target="_blank" class="btn btn-primary">Lo quiero</a>
             </div>
 
             <!-- PLAN 4: PACK -->
@@ -1106,7 +1171,7 @@
                     <li>2 correcciones por afiche</li>
                     <li>Entrega en 2-3 días</li>
                 </ul>
-                <a href="https://wa.me/51999999999?text=Hola%20Fabrizio,%20quiero%20el%20plan%20Pack%20x3" target="_blank" class="btn btn-outline">Lo quiero</a>
+                <a href="https://wa.me/51999371363?text=Hola%20Fabrizio,%20quiero%20el%20plan%20Pack%20x3" target="_blank" class="btn btn-outline">Lo quiero</a>
             </div>
 
             <!-- PLAN 5: PREMIUM -->
@@ -1123,7 +1188,7 @@
                     <li>Logo o marca incluida</li>
                     <li>Entrega en 1-2 días</li>
                 </ul>
-                <a href="https://wa.me/51999999999?text=Hola%20Fabrizio,%20quiero%20el%20plan%20Premium" target="_blank" class="btn btn-outline">Lo quiero</a>
+                <a href="https://wa.me/51999371363?text=Hola%20Fabrizio,%20quiero%20el%20plan%20Premium" target="_blank" class="btn btn-outline">Lo quiero</a>
             </div>
 
         </div>
@@ -1183,6 +1248,36 @@
         </div>
     </section>
 
+    <!-- NUEVA SECCIÓN: PREGUNTAS FRECUENTES (FAQ) -->
+    <section id="faq" class="faq">
+        <div class="section-title">
+            <h2>Preguntas Frecuentes</h2>
+            <p>Resuelve tus dudas antes de pedir tu afiche.</p>
+        </div>
+        <div class="faq-grid">
+            <details class="faq-item">
+                <summary>¿Cómo te pago?</summary>
+                <div class="faq-answer">Acepto Yape, Plin y Visa. Coordinamos el pago por WhatsApp al momento de confirmar tu pedido.</div>
+            </details>
+            <details class="faq-item">
+                <summary>¿Cuánto demoras en hacer el diseño?</summary>
+                <div class="faq-answer">Depende del plan que elijas. Los diseños digitales se entregan en menos de 1 día. Los afiches impresos en 1 a 3 días como máximo.</div>
+            </details>
+            <details class="faq-item">
+                <summary>¿Puedo pedir cambios?</summary>
+                <div class="faq-answer">¡Claro! Cada plan incluye una cantidad de correcciones (1, 2 o 3). Me dices qué quieres cambiar y lo ajusto hasta que quede perfecto.</div>
+            </details>
+            <details class="faq-item">
+                <summary>¿Tú te encargas de la impresión?</summary>
+                <div class="faq-answer">No, yo te entrego el diseño en alta calidad listo para imprimir (PDF o imagen). Tú lo llevas a la imprenta de tu preferencia.</div>
+            </details>
+            <details class="faq-item">
+                <summary>¿Trabajas con cualquier producto o negocio?</summary>
+                <div class="faq-answer">Sí, cuéntame qué necesitas. Pueden ser productos, eventos, menús, ofertas, o cualquier idea que tengas en mente.</div>
+            </details>
+        </div>
+    </section>
+
     <!-- SECCIÓN: MÉTODOS DE PAGO -->
     <section id="pagos">
         <div class="section-title">
@@ -1219,7 +1314,7 @@
     <div class="cta" id="contacto">
         <h2>¿Necesitas un afiche para tu producto?</h2>
         <p>Cuéntame tu idea y te diseño un afiche o poster único, listo para imprimir.</p>
-        <a href="https://wa.me/51999999999?text=Hola%20Fabrizio,%20quiero%20una%20cotización" target="_blank" class="btn btn-primary">Solicitar Cotización</a>
+        <a href="https://wa.me/51999371363?text=Hola%20Fabrizio,%20quiero%20una%20cotización" target="_blank" class="btn btn-primary">Solicitar Cotización</a>
     </div>
 
     <!-- FOOTER -->
@@ -1238,7 +1333,7 @@
             </div>
             <div class="footer-col">
                 <h4>Contacto</h4>
-                <a href="https://wa.me/51999999999" target="_blank">WhatsApp: +51 999 999 999</a>
+                <a href="https://wa.me/51999371363" target="_blank">WhatsApp: +51 999 371 363</a>
                 <a href="mailto:hola@posterlab.com">hola@posterlab.com</a>
                 <a href="#">Instagram</a>
                 <a href="#">TikTok</a>
@@ -1250,7 +1345,7 @@
     </footer>
 
     <!-- BOTÓN FLOTANTE DE WHATSAPP -->
-    <a href="https://wa.me/51999999999?text=Hola%20Fabrizio,%20vi%20tu%20página%20y%20quiero%20un%20afiche" 
+    <a href="https://wa.me/51999371363?text=Hola%20Fabrizio,%20vi%20tu%20página%20y%20quiero%20un%20afiche" 
        target="_blank" 
        class="whatsapp-float" 
        aria-label="Contactar por WhatsApp">
