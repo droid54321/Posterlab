@@ -59,7 +59,7 @@
         .logo span {
             font-size: 1.4rem;
             color: initial;
-            -webkit-text-fill-color: initial; /* Para que el emoji tenga su color normal */
+            -webkit-text-fill-color: initial; 
             font-family: 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
             transition: transform 0.3s;
         }
@@ -640,6 +640,52 @@
             margin-top: 0.3rem;
         }
 
+        /* SECCIÓN: MÉTODOS DE PAGO */
+        .pagos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .pago-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .pago-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Colores representativos para cada método */
+        .pago-card.yape:hover { border-color: #7B2CBF; }
+        .pago-card.plin:hover { border-color: #00A8E8; }
+        .pago-card.visa:hover { border-color: #1A1F71; }
+
+        .pago-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .pago-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .pago-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
         /* CTA */
         .cta {
             background: linear-gradient(135deg, var(--primary), var(--accent));
@@ -1003,7 +1049,7 @@
                 <div class="precio-icon">📱</div>
                 <h3>Digital</h3>
                 <p class="descripcion">Solo para redes sociales, sin impresión.</p>
-                <div class="precio-valor">S/ 10</div>
+                <div class="precio-valor">S/ 5</div>
                 <div class="precio-tiempo">por diseño</div>
                 <ul class="precio-incluye">
                     <li>1 diseño para Instagram/Facebook</li>
@@ -1019,7 +1065,7 @@
                 <div class="precio-icon">📄</div>
                 <h3>Básico</h3>
                 <p class="descripcion">Para empezar con un afiche que llame la atención.</p>
-                <div class="precio-valor">S/ 15</div>
+                <div class="precio-valor">S/ 8</div>
                 <div class="precio-tiempo">por afiche</div>
                 <ul class="precio-incluye">
                     <li>1 diseño en A6 o A5</li>
@@ -1036,7 +1082,7 @@
                 <div class="precio-icon">📃</div>
                 <h3>Medio</h3>
                 <p class="descripcion">El equilibrio entre precio y calidad. El favorito.</p>
-                <div class="precio-valor">S/ 25</div>
+                <div class="precio-valor">S/ 13</div>
                 <div class="precio-tiempo">por afiche</div>
                 <ul class="precio-incluye">
                     <li>1 diseño en A3 o A4</li>
@@ -1052,7 +1098,7 @@
                 <div class="precio-icon">🎁</div>
                 <h3>Pack x3</h3>
                 <p class="descripcion">3 afiches con descuento. Ideal para promociones.</p>
-                <div class="precio-valor">S/ 60</div>
+                <div class="precio-valor">S/ 30</div>
                 <div class="precio-tiempo">por 3 afiches</div>
                 <ul class="precio-incluye">
                     <li>3 diseños en A3 o A4</li>
@@ -1068,7 +1114,7 @@
                 <div class="precio-icon">👑</div>
                 <h3>Premium</h3>
                 <p class="descripcion">Diseño exclusivo con más revisiones y detalles.</p>
-                <div class="precio-valor">S/ 40</div>
+                <div class="precio-valor">S/ 20</div>
                 <div class="precio-tiempo">por afiche</div>
                 <ul class="precio-incluye">
                     <li>1 diseño en A3 o A4</li>
@@ -1134,6 +1180,38 @@
                 <p>Para portadas de Facebook o YouTube.</p>
                 <span class="size">820x312 px</span>
             </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: MÉTODOS DE PAGO -->
+    <section id="pagos">
+        <div class="section-title">
+            <h2>Métodos de Pago</h2>
+            <p>Acepto las formas de pago más rápidas y seguras para tu comodidad.</p>
+        </div>
+        <div class="pagos-grid">
+            
+            <!-- YAPE -->
+            <div class="pago-card yape">
+                <span class="pago-icon">💜</span>
+                <h3>Yape</h3>
+                <p>Pago rápido desde tu celular.</p>
+            </div>
+
+            <!-- PLIN -->
+            <div class="pago-card plin">
+                <span class="pago-icon">💙</span>
+                <h3>Plin</h3>
+                <p>Transferencia inmediata sin comisiones.</p>
+            </div>
+
+            <!-- VISA -->
+            <div class="pago-card visa">
+                <span class="pago-icon">💳</span>
+                <h3>Visa</h3>
+                <p>Paga con tarjeta de crédito o débito.</p>
+            </div>
+
         </div>
     </section>
 
