@@ -50,6 +50,20 @@
             background: linear-gradient(135deg, var(--primary), var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .logo span {
+            font-size: 1.4rem;
+            -webkit-text-fill-color: initial; /* Para que el emoji tenga su color normal */
+            transition: transform 0.3s;
+        }
+
+        .logo:hover span {
+            transform: rotate(-15deg) scale(1.1);
         }
 
         .nav-links {
@@ -677,6 +691,9 @@
         .footer-col h4 {
             margin-bottom: 1rem;
             color: var(--yellow);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .footer-col a {
@@ -698,9 +715,7 @@
             font-size: 0.9rem;
         }
 
-        /* ============================================ */
-        /* BOTÓN FLOTANTE DE WHATSAPP                   */
-        /* ============================================ */
+        /* BOTÓN FLOTANTE DE WHATSAPP */
         .whatsapp-float {
             position: fixed;
             bottom: 25px;
@@ -731,7 +746,6 @@
             fill: white;
         }
 
-        /* Tooltip al pasar el mouse */
         .whatsapp-float .wa-tooltip {
             position: absolute;
             right: 75px;
@@ -827,7 +841,7 @@
 
     <!-- NAVBAR -->
     <nav>
-        <div class="logo">PosterLab 🎨</div>
+        <a href="#" class="logo">PosterLab <span>🎨</span></a>
         <ul class="nav-links">
             <li><a href="#servicios">Servicios</a></li>
             <li><a href="#proceso">Cómo trabajo</a></li>
@@ -1132,7 +1146,7 @@
     <footer>
         <div class="footer-content">
             <div class="footer-col">
-                <h4>PosterLab 🎨</h4>
+                <h4>PosterLab <span>🎨</span></h4>
                 <p style="color: #B2BEC3;">Diseño de afiches y posters que hacen que tu producto destaque.</p>
             </div>
             <div class="footer-col">
